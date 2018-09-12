@@ -57,31 +57,31 @@ while True:
 
 
 						if str(page) == str(pageCount):
-							print (str(page) + "   " + str(pageCount));
-						# 	driver.get(pageURL)
-						# 	print ("Fetch data for this category" + subCategory + " & page number is" + page)
-						# 	time.sleep(5)
-						# 	html2 = driver.page_source
-						# 	driver.save_screenshot('test.png')
-						# 	soup = BeautifulSoup(html2, "lxml", from_encoding="utf-8")
-						# 	members = soup.find_all('li',{'class':'productView'})
-						# 	# for member in members:
-						# 	# 	try:
-						# 	# 		image = member.find('div',{'class':'product-image'})
-						# 	# 		atag = image.find('a')
-						# 	# 		price = member.find('div',{'class':'price'})
-						# 	# 		if price:
-						# 	# 			price = price.text.strip()
-						# 	# 			price = price.replace('\n','')
-						# 	# 			price = price.replace('Sale','')
-						# 	# 			price = price.replace('Clearance','')
-						# 	# 			if atag.get('href') and price:
-						# 	# 				print (atag.get('href') + '^^^^^' +  price + '^^^^^' + category + '^^^^^' + subCategory);
-						# 	# 				get_item(atag.get('href') + '^^^^^' +  price + '^^^^^' + category + '^^^^^' + subCategory)
-						# 	# 	except Exception as e:
-						# 	# 		print ("Loop4")
-						# 	# 		print (e)
-						# 	# 		continue
+							
+							driver.get(pageURL)
+							print ("Fetch data for this category" + subCategory + " & page number is" + page)
+							time.sleep(5)
+							html2 = driver.page_source
+							driver.save_screenshot('test.png')
+							soup = BeautifulSoup(html2, "lxml", from_encoding="utf-8")
+							members = soup.find_all('li',{'class':'productView'})
+							for member in members:
+								try:
+									image = member.find('div',{'class':'product-image'})
+									atag = image.find('a')
+									price = member.find('div',{'class':'price'})
+									if price:
+										price = price.text.strip()
+										price = price.replace('\n','')
+										price = price.replace('Sale','')
+										price = price.replace('Clearance','')
+										if atag.get('href') and price:
+											print (atag.get('href') + '^^^^^' +  price + '^^^^^' + category + '^^^^^' + subCategory);
+											# get_item(atag.get('href') + '^^^^^' +  price + '^^^^^' + category + '^^^^^' + subCategory)
+								except Exception as e:
+									print ("Loop4")
+									print (e)
+									continue
 							
 							
 							if str(page) == str(cursor.rowcount):
