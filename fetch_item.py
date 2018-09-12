@@ -57,7 +57,7 @@ while True:
 
 
 						if str(page) == str(pageCount):
-							print (stR(page) + "   " + str(pageCount));
+							print (str(page) + "   " + str(pageCount));
 						# 	driver.get(pageURL)
 						# 	print ("Fetch data for this category" + subCategory + " & page number is" + page)
 						# 	time.sleep(5)
