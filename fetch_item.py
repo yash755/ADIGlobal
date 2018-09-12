@@ -57,7 +57,7 @@ while True:
 
 						if str(page) == str(pageCount):
 							driver.get(pageURL)
-							print (pageURL)
+							print ("Fetch data for this category" + subcategory + " & page number is" + page)
 							time.sleep(5)
 							html2 = driver.page_source
 							driver.save_screenshot('test.png')
@@ -74,6 +74,7 @@ while True:
 										price = price.replace('Sale','')
 										price = price.replace('Clearance','')
 										if atag.get('href') and price:
+											print (atag.get('href') + '^^^^^' +  price + '^^^^^' + category + '^^^^^' + subCategory);
 											get_item(atag.get('href') + '^^^^^' +  price + '^^^^^' + category + '^^^^^' + subCategory)
 								except Exception as e:
 									print ("Loop4")
