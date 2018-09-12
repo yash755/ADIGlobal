@@ -56,12 +56,8 @@ while True:
 							page = pageCount
 
 
-						print (str(page) + "   " + str(pageCount));
-
-
-
 						if str(page) == str(pageCount):
-							print (page + "   " + pageCount);
+							print (stR(page) + "   " + str(pageCount));
 						# 	driver.get(pageURL)
 						# 	print ("Fetch data for this category" + subCategory + " & page number is" + page)
 						# 	time.sleep(5)
@@ -96,8 +92,8 @@ while True:
 								file = open('pagecount.txt','w')
 								file.write(str(pageCount + 1))
 								file.close()
-						else:
-							print ("No Page Match")
+						# else:
+						# 	print ("No Page Match")
 
 					except Exception as e:
 						print ("Loop3")
