@@ -55,9 +55,10 @@ while True:
 							file.close()
 							page = pageCount
 
-						print (page)
 
-						# if str(page) == str(pageCount):
+
+						if str(page) == str(pageCount):
+							print (page + "   " + pageCount);
 						# 	driver.get(pageURL)
 						# 	print ("Fetch data for this category" + subCategory + " & page number is" + page)
 						# 	time.sleep(5)
@@ -84,16 +85,16 @@ while True:
 						# 	# 		continue
 							
 							
-						# 	if str(page) == str(cursor.rowcount):
-						# 		file = open('pagecount.txt','w')
-						# 		file.write(str(1))
-						# 		file.close()
-						# 	else:
-						# 		file = open('pagecount.txt','w')
-						# 		file.write(str(pageCount + 1))
-						# 		file.close()
-						# else:
-						# 	print ("No Page Match")
+							if str(page) == str(cursor.rowcount):
+								file = open('pagecount.txt','w')
+								file.write(str(1))
+								file.close()
+							else:
+								file = open('pagecount.txt','w')
+								file.write(str(pageCount + 1))
+								file.close()
+						else:
+							print ("No Page Match")
 
 					except Exception as e:
 						print ("Loop3")
