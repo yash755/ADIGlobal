@@ -77,7 +77,7 @@ while True:
 										price = price.replace('Clearance','')
 										if atag.get('href') and price:
 											print (atag.get('href') + '^^^^^' +  price + '^^^^^' + category + '^^^^^' + subCategory);
-											# get_item(atag.get('href') + '^^^^^' +  price + '^^^^^' + category + '^^^^^' + subCategory)
+											get_item(atag.get('href') + '^^^^^' +  price + '^^^^^' + category + '^^^^^' + subCategory)
 								except Exception as e:
 									print ("Loop4")
 									print (e)
@@ -122,6 +122,8 @@ def get_item(parameters):
 			else:
 				base_url = 'https://adiglobal.us/Pages/' + str(parameters[0])
 				print (base_url)
+		else:
+			print("Sorry")
 
 			final_list = []
 			handle = "No Data" #Done
