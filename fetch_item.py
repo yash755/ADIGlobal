@@ -56,6 +56,9 @@ while True:
 							page = pageCount
 
 
+						print (page + "   " + pageCount);
+
+
 
 						if str(page) == str(pageCount):
 							print (page + "   " + pageCount);
