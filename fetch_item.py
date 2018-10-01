@@ -25,17 +25,7 @@ def get_list():
 				cursor.execute("SELECT * FROM adi_category")
 				connection.commit()
 
-				url = 'https://adiglobal.us/Pages/WebRegistration.aspx'
-				driver = webdriver.PhantomJS(service_args=['--ssl-protocol=any'])
-				driver.maximize_window()
-				driver.get(url)
-				time.sleep(2)
-				name = driver.find_element_by_name('ctl00$PlaceHolderMain$ctl00$ctlLoginView$MainLoginView$MainLogin$UserName')
-				name.send_keys('KASE2046')
-				password = driver.find_element_by_name('ctl00$PlaceHolderMain$ctl00$ctlLoginView$MainLoginView$MainLogin$Password')
-				password.send_keys('Prodsupp17')
-				driver.find_element_by_id("ctl00_PlaceHolderMain_ctl00_ctlLoginView_MainLoginView_MainLogin_LoginButton").click()
-				time.sleep(2)
+				
 				for row in cursor:
 					try:
 						data = row
@@ -57,7 +47,17 @@ def get_list():
 
 
 						if str(page) == str(pageCount):
-							
+							url = 'https://adiglobal.us/Pages/WebRegistration.aspx'
+							driver = webdriver.PhantomJS(service_args=['--ssl-protocol=any'])
+							driver.maximize_window()
+							driver.get(url)
+							time.sleep(2)
+							name = driver.find_element_by_name('ctl00$PlaceHolderMain$ctl00$ctlLoginView$MainLoginView$MainLogin$UserName')
+							name.send_keys('KASE2046')
+							password = driver.find_element_by_name('ctl00$PlaceHolderMain$ctl00$ctlLoginView$MainLoginView$MainLogin$Password')
+							password.send_keys('Prodsupp17')
+							driver.find_element_by_id("ctl00_PlaceHolderMain_ctl00_ctlLoginView_MainLoginView_MainLogin_LoginButton").click()
+							time.sleep(2)
 							driver.get(pageURL)
 							print ("Fetch data for this category" + subCategory + " & page number is" + page)
 							time.sleep(5)
